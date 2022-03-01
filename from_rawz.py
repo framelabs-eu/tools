@@ -7,7 +7,7 @@ import png
 import zlib
 import math
 
-DIMENSIONS = {(800, 600), (1200, 825)}
+DIMENSIONS = {(800, 600), (1200, 825), (1600, 1200)}
 SIZE_TO_DIMENSIONS = {x*y//2: (x,y) for x,y in DIMENSIONS}
 
 def read_content(file):

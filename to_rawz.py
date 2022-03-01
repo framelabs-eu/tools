@@ -6,7 +6,7 @@ import zlib
 import argparse
 from PIL import Image
 
-WIDTHS = {800, 1200}
+WIDTHS = {800, 1200, 1600}
 
 def to_rawz(image_path):
     grayscaled = to_grayscale(image_path)
