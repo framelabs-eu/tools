@@ -18,18 +18,15 @@ def to_raw(image):
     width, height = image.size
     if width not in WIDTHS:
         print(f'\tWarning: image width is {width}, should be one of {WIDTHS}', file=sys.stderr)
-    buf = bytearray()
 
-    val = 0
-    i = 0
+    buf = bytearray(width * height // 2)
     for y in range(height):
         for x in range(width):
-            if i:
-                val = px[x, y] // 16
+            i = (y*width+x)
+            if not i % 2:
+                buf[i//2] |= px[x, y] // 16
             else:
-                val += px[x, y] // 16 << 4
-                buf.append(val)
-            i = not i
+                buf[i//2] |= px[x, y] // 16 << 4
     return buf
 
 def to_grayscale(image_path):
