@@ -23,7 +23,7 @@ def to_raw(image):
     for y in range(height):
         for x in range(width):
             i = (y*width+x)
-            if not i % 2:
+            if i % 2 == 0:
                 buf[i//2] |= px[x, y] // 16
             else:
                 buf[i//2] |= px[x, y] // 16 << 4
